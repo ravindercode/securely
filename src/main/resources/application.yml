@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:mysql://mysql:3306/testdb
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+# Auth configuration - Change this to switch auth types
+# Options: basic, apikey, jwt, oauth2
+auth:
+  type: jwt
+
+jwt:
+  secret: mysupersecretkeymysupersecretkey
+
+# API Key configuration (used when auth.type=apikey)
+api:
+  key: my-secret-api-key-12345
+
+# OAuth2 Resource Server configuration (used when auth.type=oauth2)
+# Keycloak configuration (docker-compose includes Keycloak on port 8181)
+# 1. Start services: docker-compose up
+# 2. Access Keycloak Admin: http://localhost:8181/admin (admin/admin)
+# 3. Create realm: "securely"
+# 4. Create client: "securely-app" (public, standard flow enabled)
+# 5. Create users in the realm
+# 6. Get token from: http://localhost:8181/realms/securely/protocol/openid-connect/token
+spring.security.oauth2.resourceserver:
+  jwt:
+    issuer-uri: http://localhost:8181/realms/securely
+    jwk-set-uri: http://localhost:8181/realms/securely/protocol/openid-connect/certs

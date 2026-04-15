@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS keycloak;
+GRANT ALL PRIVILEGES ON keycloak.* TO 'root'@'%';
