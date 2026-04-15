@@ -2,6 +2,8 @@
 
 A Spring Boot application demonstrating multiple authentication types with `@ConditionalOnProperty` for easy switching.
 
+> **🚀 Quick Start:** See [QUICKSTART.md](QUICKSTART.md) to run the app in 5 minutes with Docker.
+
 ## Supported Authentication Types
 
 - **JWT** (default) - JSON Web Token authentication
